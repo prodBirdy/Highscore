@@ -10,6 +10,7 @@ public class Player
     
     public string FullName { get { return $"{FName} {LName}"; } }
     
+    
     public DateTime BirthDate { get; set; }
     
     public DateTime Entry { get; set; }
