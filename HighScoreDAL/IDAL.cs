@@ -10,7 +10,9 @@ public interface IDAL
 
     int Save();
     void Rollback();
-
+    
+    public string FilePath { get; set; }
+    
     #region Events
     /// <summary>
     /// When Players are loaded

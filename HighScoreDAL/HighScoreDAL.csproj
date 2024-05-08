@@ -6,10 +6,11 @@
         <Nullable>enable</Nullable>
         <Configurations>Debug;Release;Test</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <RootNamespace>DAL</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Models\Models.csproj" />
+      <ProjectReference Include="..\HighScoreModels\HighScoreModels.csproj" />
     </ItemGroup>
 
 </Project>

@@ -6,11 +6,7 @@
         <Nullable>enable</Nullable>
         <Configurations>Debug;Release;Test</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <RootNamespace>DTO</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\DTO\DTO.csproj" />
-      <ProjectReference Include="..\Models\Models.csproj" />
-    </ItemGroup>
 
 </Project>

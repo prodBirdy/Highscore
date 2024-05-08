@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <Configurations>Debug;Release;Test</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <RootNamespace>Models</RootNamespace>
     </PropertyGroup>
 
 </Project>
