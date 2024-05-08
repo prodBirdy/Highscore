@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Player
+public class Highscore
 {
     public int PlayerId { get; set; }
     

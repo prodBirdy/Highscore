@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class Player
+public class Game
 {
     public int PlayerId { get; set; }
     
