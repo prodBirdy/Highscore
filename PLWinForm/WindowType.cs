@@ -1,1 +1,1 @@
-﻿public enum WindowType { Add, Detail, View }
+﻿public enum WindowType { Add, Edit, View }

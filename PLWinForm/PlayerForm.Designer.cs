@@ -37,12 +37,12 @@
             btnRevertForm = new Button();
             btnSaveForm = new Button();
             label4 = new Label();
-            textBox1 = new TextBox();
+            Field4 = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            Field3 = new TextBox();
             label5 = new Label();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
+            Field5 = new TextBox();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)playerDetailBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -65,7 +65,6 @@
             label1.Size = new Size(78, 32);
             label1.TabIndex = 1;
             label1.Text = "lable1";
-            label1.Click += this.label1_Click;
             // 
             // label2
             // 
@@ -92,6 +91,7 @@
             btnRevertForm.TabIndex = 13;
             btnRevertForm.Text = "Abort";
             btnRevertForm.UseVisualStyleBackColor = true;
+            btnRevertForm.Click += btnRevertForm_Click;
             // 
             // btnSaveForm
             // 
@@ -102,6 +102,7 @@
             btnSaveForm.TabIndex = 12;
             btnSaveForm.Text = "Save";
             btnSaveForm.UseVisualStyleBackColor = true;
+            btnSaveForm.Click += btnSaveForm_Click;
             // 
             // label4
             // 
@@ -112,12 +113,12 @@
             label4.TabIndex = 17;
             label4.Text = "label4";
             // 
-            // textBox1
+            // Field4
             // 
-            textBox1.Location = new Point(169, 160);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(617, 39);
-            textBox1.TabIndex = 16;
+            Field4.Location = new Point(169, 160);
+            Field4.Name = "Field4";
+            Field4.Size = new Size(617, 39);
+            Field4.TabIndex = 16;
             // 
             // label3
             // 
@@ -128,12 +129,12 @@
             label3.TabIndex = 15;
             label3.Text = "lable3";
             // 
-            // textBox2
+            // Field3
             // 
-            textBox2.Location = new Point(169, 115);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(617, 39);
-            textBox2.TabIndex = 14;
+            Field3.Location = new Point(169, 115);
+            Field3.Name = "Field3";
+            Field3.Size = new Size(617, 39);
+            Field3.TabIndex = 14;
             // 
             // label5
             // 
@@ -144,40 +145,40 @@
             label5.TabIndex = 19;
             label5.Text = "label5";
             // 
-            // textBox4
+            // Field5
             // 
-            textBox4.Location = new Point(169, 205);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(617, 39);
-            textBox4.TabIndex = 18;
+            Field5.Location = new Point(169, 205);
+            Field5.Name = "Field5";
+            Field5.Size = new Size(617, 39);
+            Field5.TabIndex = 18;
             // 
-            // textBox3
+            // textBox1
             // 
-            textBox3.Location = new Point(29, 266);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(757, 283);
-            textBox3.TabIndex = 20;
+            textBox1.Location = new Point(29, 266);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(757, 283);
+            textBox1.TabIndex = 20;
             // 
-            // DetailForm
+            // PlayerForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 636);
-            Controls.Add(textBox3);
-            Controls.Add(label5);
-            Controls.Add(textBox4);
-            Controls.Add(label4);
             Controls.Add(textBox1);
+            Controls.Add(label5);
+            Controls.Add(Field5);
+            Controls.Add(label4);
+            Controls.Add(Field4);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(Field3);
             Controls.Add(btnRevertForm);
             Controls.Add(btnSaveForm);
             Controls.Add(label2);
             Controls.Add(Field2);
             Controls.Add(label1);
             Controls.Add(Field1);
-            Name = "DetailForm";
+            Name = "PlayerForm";
             Text = "DetailForm";
             ((System.ComponentModel.ISupportInitialize)playerDetailBindingSource).EndInit();
             ResumeLayout(false);
@@ -194,11 +195,11 @@
         private Button btnRevertForm;
         private Button btnSaveForm;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox Field4;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox Field3;
         private Label label5;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox Field5;
+        private TextBox textBox1;
     }
 }
