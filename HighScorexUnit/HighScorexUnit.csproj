@@ -7,8 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <Configurations>Debug;Release;Test</Configurations>
-        <Platforms>AnyCPU</Platforms>
+        <RootNamespace>xUnitHs</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,8 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BL\BL.csproj" />
-      <ProjectReference Include="..\DAL\DAL.csproj" />
+      <ProjectReference Include="..\HighScoreBL\HighScoreBL.csproj" />
     </ItemGroup>
 
 </Project>

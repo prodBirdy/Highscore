@@ -6,6 +6,10 @@ namespace DAL;
 
 public class DALXml : DAL
 {
+    /// <summary>
+    /// Save all data to xml files
+    /// </summary>
+    /// <returns></returns>
     public override int Save()
     {
         int count = 0;
@@ -54,6 +58,10 @@ public class DALXml : DAL
         return count;
     }
 
+    /// <summary>
+    /// Load all games from xml file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Game> LoadGames()
     {
         string LoadPath = FilePath + "Games.xml";
@@ -73,6 +81,10 @@ public class DALXml : DAL
         return new List<Game>();
     }
 
+    /// <summary>
+    /// Load all players from xml file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Player> LoadPlayers()
     {
         string LoadPath = FilePath + "Players.xml";
@@ -92,6 +104,10 @@ public class DALXml : DAL
         return new List<Player>();
     }
 
+    /// <summary>
+    /// Load all highscores from xml file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Highscore> LoadHighscores()
     {
         string LoadPath = FilePath + "Highscore.xml";

@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj" />
     <ProjectReference Include="..\DTO\DTO.csproj" />
+    <ProjectReference Include="..\HighScoreBL\HighScoreBL.csproj" />
   </ItemGroup>
 
 </Project>

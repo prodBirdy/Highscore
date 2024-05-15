@@ -4,6 +4,10 @@ namespace DAL;
 
 public class DALCsv : DAL
 {
+    /// <summary>
+    /// save all data to csv files
+    /// </summary>
+    /// <returns></returns>
     public override int Save()
     {
         int count = 0;
@@ -61,6 +65,10 @@ public class DALCsv : DAL
         return count;
     }
 
+    /// <summary>
+    /// Load all games from csv file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Game> LoadGames()
     {
         List<Game> games = new();
@@ -96,6 +104,10 @@ public class DALCsv : DAL
         return games;
     }
 
+    /// <summary>
+    /// Load all players from csv file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Player> LoadPlayers()
     {
         List<Player> players = new();
@@ -132,6 +144,10 @@ public class DALCsv : DAL
         return players;
     }
 
+    /// <summary>
+    /// Load all highscores from csv file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Highscore> LoadHighscores()
     {
         List<Highscore> highscores = new();

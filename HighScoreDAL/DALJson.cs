@@ -5,6 +5,10 @@ namespace DAL;
 
 public class DALJson : DAL
 {
+    /// <summary>
+    /// Save all data to json files
+    /// </summary>
+    /// <returns></returns>
     public override int Save()
     {
         int count = 0;
@@ -50,6 +54,10 @@ public class DALJson : DAL
         return count;
     }
 
+    /// <summary>
+    /// Load all games from json file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Game> LoadGames()
     {
         string LoadPath = FilePath + "Games.json";
@@ -68,6 +76,10 @@ public class DALJson : DAL
         return new List<Game>();
     }
 
+    /// <summary>
+    /// Load all players from json file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Player> LoadPlayers()
     {
         string LoadPath = FilePath + "Players.json";
@@ -86,6 +98,10 @@ public class DALJson : DAL
         return new List<Player>();
     }
 
+    /// <summary>
+    /// Load all highscores from json file
+    /// </summary>
+    /// <returns></returns>
     protected override List<Highscore> LoadHighscores()
     {
         string LoadPath = FilePath + "Highscore.json";
