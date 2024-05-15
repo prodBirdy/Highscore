@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighScoreDTO", "HighScoreDT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighScoreModels", "HighScoreModels\HighScoreModels.csproj", "{0DB148BA-D4A2-467C-9364-F921B53F2AB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLWinForm", "PLWinForm\PLWinForm.csproj", "{AFD4DC54-5316-4563-8B9E-ECF9444D577C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PLWinForm", "PLWinForm\PLWinForm.csproj", "{AFD4DC54-5316-4563-8B9E-ECF9444D577C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScorexUnit", "HighScorexUnit\HighScorexUnit.csproj", "{C1C6CA5F-E8B7-474F-BC48-AF514CE142B1}"
 EndProject

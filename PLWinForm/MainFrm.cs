@@ -1,26 +1,25 @@
-using BL;
+using BL;namespace HighScoreGUI;public partial class MainFrm : Form{    private readonly Uow unitOfWork;    public MainFrm()    {        InitializeComponent();
+        var uow = new Uow(DALType.Json);        var players = uow.Players.GetPlayers();        var games = uow.Games.GetGames();        var highscoresPerPlayer = uow.Highscores.GetHighscoresByPlayer(1);        var highscoresPerGame = uow.Highscores.GetHighscoresByGame(1);        dtgPlayers.DataSource = players;        dtgGames.DataSource = games;        dtgHighscoresPlayer.DataSource = highscoresPerPlayer;        dtgHighscoresGame.DataSource = highscoresPerGame;
 
-namespace HighScoreGUI;
+    }    private void dtgPlayers_CellContentClick(object sender, DataGridViewCellEventArgs e)    {    }
 
-public partial class MainFrm : Form
-{
-    private readonly Uow unitOfWork;
-
-    public MainFrm()
+    private void MainFrm_Load(object sender, EventArgs e)
     {
-        InitializeComponent();
 
-        DALType filetyp = "Json";
-        uow = new Uow();
+    }
 
-        var players = uow.PlayersRepo.GetAllPlayers();
-        var games = uow.GamesRepo.GetAllGames();
-        var highscoresPerPlayer = uow.HighScoresRepo.GetAllHighScoreByPlayerId(1);
-        var highscoresPerGame = uow.HighScoresRepo.GetAllHighScoreByGameId(1);
+    private void btnDetailsPlayer_Click(object sender, EventArgs e)
+    {
 
-        dtgPlayers.DataSource = players;
-        dtgGames.DataSource = games;
-        dtgHighscoresPlayer.DataSource = highscoresPerPlayer;
-        dtgHighscoresGame.DataSource = highscoresPerGame;
+    }
+
+    private void highScoreBindingSource1_CurrentChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void dtgGames_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
     }
 }
