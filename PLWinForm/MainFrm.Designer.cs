@@ -36,6 +36,9 @@
             birthDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             playerIndexBindingSource = new BindingSource(components);
             dtgGames = new DataGridView();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            releaseDateDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             gameIndexBindingSource = new BindingSource(components);
             dtgHighscoresPlayer = new DataGridView();
             playerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -61,9 +64,6 @@
             btnDetailsHighscoreGame = new Button();
             btnRollback = new Button();
             btnSave = new Button();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
-            releaseDateDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgPlayers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playerIndexBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgGames).BeginInit();
@@ -142,6 +142,28 @@
             dtgGames.Size = new Size(934, 429);
             dtgGames.TabIndex = 6;
             dtgGames.CellContentClick += dtgGames_CellContentClick;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.DataPropertyName = "GameId";
+            dataGridViewTextBoxColumn9.HeaderText = "GameId";
+            dataGridViewTextBoxColumn9.MinimumWidth = 10;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.DataPropertyName = "Title";
+            dataGridViewTextBoxColumn10.HeaderText = "Title";
+            dataGridViewTextBoxColumn10.MinimumWidth = 10;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // releaseDateDataGridViewTextBoxColumn1
+            // 
+            releaseDateDataGridViewTextBoxColumn1.DataPropertyName = "ReleaseDate";
+            releaseDateDataGridViewTextBoxColumn1.HeaderText = "ReleaseDate";
+            releaseDateDataGridViewTextBoxColumn1.MinimumWidth = 10;
+            releaseDateDataGridViewTextBoxColumn1.Name = "releaseDateDataGridViewTextBoxColumn1";
             // 
             // gameIndexBindingSource
             // 
@@ -371,28 +393,6 @@
             btnSave.TabIndex = 22;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewTextBoxColumn9.DataPropertyName = "GameId";
-            dataGridViewTextBoxColumn9.HeaderText = "GameId";
-            dataGridViewTextBoxColumn9.MinimumWidth = 10;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.DataPropertyName = "Title";
-            dataGridViewTextBoxColumn10.HeaderText = "Title";
-            dataGridViewTextBoxColumn10.MinimumWidth = 10;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // releaseDateDataGridViewTextBoxColumn1
-            // 
-            releaseDateDataGridViewTextBoxColumn1.DataPropertyName = "ReleaseDate";
-            releaseDateDataGridViewTextBoxColumn1.HeaderText = "ReleaseDate";
-            releaseDateDataGridViewTextBoxColumn1.MinimumWidth = 10;
-            releaseDateDataGridViewTextBoxColumn1.Name = "releaseDateDataGridViewTextBoxColumn1";
             // 
             // MainFrm
             // 

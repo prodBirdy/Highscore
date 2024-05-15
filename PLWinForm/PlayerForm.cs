@@ -16,39 +16,56 @@ namespace PLWinForm
     {
 
         public WindowType windowType { get; set; }
-        
+
         public PlayerForm(WindowType window, PlayerDetail p = null)
         {
             windowType = window;
             InitializeComponent();
 
-            
+            label1.Text = "FName";
+            label2.Text = "LName";
+            label3.Text = "BirthDay";
+            label4.Text = "Entry";
+            label5.Text = "Exit";
+
+            Field1.DataBindings.Add("Text", p, "FName");
+            Field2.DataBindings.Add("Text", p, "LName");
+            Field5.DataBindings.Add("Text", p, "Notes");
+
+            dateTimePicker3.DataBindings.Add("Value", p, "BirthDay", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now, "d");
+            dateTimePicker4.DataBindings.Add("Value", p, "Entry");
+            dateTimePicker5.DataBindings.Add("Value", p, "Exit", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now);
 
             switch (windowType)
             {
                 case WindowType.Add:
                     this.Text = "Add Player";
-
+                    btnSaveForm.Text = "Save";
+                    btnRevertForm.Text = "Abort";
                     break;
                 case WindowType.Edit:
                     this.Text = "Edit Player";
-                    if (p != null)
-                    {
-                        LoadData(p);
+                    btnSaveForm.Text = "Update";
+                    btnRevertForm.Text = "Abort";
 
-                    }
+                    dateTimePicker3.Enabled = false;
+                    dateTimePicker5.Enabled = false;
                     break;
                 case WindowType.View:
                     this.Text = "Delete Player";
                     btnSaveForm.Visible = false;
                     btnRevertForm.Text = "Close";
 
-                    if(p != null)
-                    {
-                        LoadData(p);
+                    Field1.ReadOnly = true;
+                    Field2.ReadOnly = true;
+                    Field3.ReadOnly = true;
+                    Field4.ReadOnly = true;
+                    Field5.ReadOnly = true;
+                    inpNotes.ReadOnly = true;
 
-                    }
-
+                    dateTimePicker3.Enabled = false;
+                    dateTimePicker4.Enabled = false;
+                    dateTimePicker5.Enabled = false;
                     break;
                 default:
                     break;
@@ -56,36 +73,11 @@ namespace PLWinForm
 
         }
 
-        private void LoadData(PlayerDetail p)
-        {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-            label4.Text = "";
-            label5.Text = "";
 
-            Field1.Text = p.FName;
-            Field2.Text = p.LName;
-
-            Field3.Visible = false;
-            Field4.Visible = false;
-
-            dateTimePicker3.Value = p.BirthDay.ToDateTime(new TimeOnly());
-            dateTimePicker4.Value = p.Entry;
-            try
-            {
-                dateTimePicker5.Value = (DateTime)p.Exit;
-            }
-            catch (Exception)
-            {
-                dateTimePicker5.Visible = false;
-            }
-            Field5.Text = p.Notes;
-        }
 
         private void btnSaveForm_Click(object sender, EventArgs e)
         {
-           
+
 
         }
 

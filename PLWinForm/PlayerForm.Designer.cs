@@ -41,11 +41,12 @@
             Field3 = new TextBox();
             label5 = new Label();
             Field5 = new TextBox();
-            textBox1 = new TextBox();
+            inpNotes = new TextBox();
             dateTimePicker3 = new DateTimePicker();
             Field4 = new TextBox();
             dateTimePicker5 = new DateTimePicker();
             dateTimePicker4 = new DateTimePicker();
+            lbNotes = new Label();
             ((System.ComponentModel.ISupportInitialize)playerDetailBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -148,13 +149,13 @@
             Field5.Size = new Size(617, 39);
             Field5.TabIndex = 18;
             // 
-            // textBox1
+            // inpNotes
             // 
-            textBox1.Location = new Point(29, 266);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(757, 283);
-            textBox1.TabIndex = 20;
+            inpNotes.Location = new Point(169, 266);
+            inpNotes.Multiline = true;
+            inpNotes.Name = "inpNotes";
+            inpNotes.Size = new Size(617, 283);
+            inpNotes.TabIndex = 20;
             // 
             // dateTimePicker3
             // 
@@ -184,16 +185,26 @@
             dateTimePicker4.Size = new Size(617, 39);
             dateTimePicker4.TabIndex = 24;
             // 
+            // lbNotes
+            // 
+            lbNotes.AutoSize = true;
+            lbNotes.Location = new Point(29, 266);
+            lbNotes.Name = "lbNotes";
+            lbNotes.Size = new Size(77, 32);
+            lbNotes.TabIndex = 25;
+            lbNotes.Text = "Notes";
+            // 
             // PlayerForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 636);
+            Controls.Add(lbNotes);
             Controls.Add(dateTimePicker4);
             Controls.Add(dateTimePicker5);
             Controls.Add(Field4);
             Controls.Add(dateTimePicker3);
-            Controls.Add(textBox1);
+            Controls.Add(inpNotes);
             Controls.Add(label5);
             Controls.Add(Field5);
             Controls.Add(label4);
@@ -226,10 +237,11 @@
         private TextBox Field3;
         private Label label5;
         private TextBox Field5;
-        private TextBox textBox1;
+        private TextBox inpNotes;
         private DateTimePicker dateTimePicker3;
         private TextBox Field4;
         private DateTimePicker dateTimePicker5;
         private DateTimePicker dateTimePicker4;
+        private Label lbNotes;
     }
 }
