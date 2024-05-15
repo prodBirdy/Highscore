@@ -36,15 +36,12 @@
             birthDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             playerIndexBindingSource = new BindingSource(components);
             dtgGames = new DataGridView();
+            gameIndexBindingSource = new BindingSource(components);
+            dtgHighscoresPlayer = new DataGridView();
             playerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             scoreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             highscorePlayerIndexBindingSource = new BindingSource(components);
-            dtgHighscoresPlayer = new DataGridView();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            releaseDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            gameIndexBindingSource = new BindingSource(components);
             dtgHighscoresGame = new DataGridView();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             scoreDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
@@ -64,12 +61,15 @@
             btnDetailsHighscoreGame = new Button();
             btnRollback = new Button();
             btnSave = new Button();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            releaseDateDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgPlayers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playerIndexBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgGames).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)highscorePlayerIndexBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dtgHighscoresPlayer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gameIndexBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgHighscoresPlayer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)highscorePlayerIndexBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgHighscoresGame).BeginInit();
             ((System.ComponentModel.ISupportInitialize)highscoreGameIndexBindingSource).BeginInit();
             SuspendLayout();
@@ -132,8 +132,8 @@
             dtgGames.BackgroundColor = SystemColors.Control;
             dtgGames.BorderStyle = BorderStyle.None;
             dtgGames.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgGames.Columns.AddRange(new DataGridViewColumn[] { playerIdDataGridViewTextBoxColumn, scoreDataGridViewTextBoxColumn, createdDataGridViewTextBoxColumn });
-            dtgGames.DataSource = highscorePlayerIndexBindingSource;
+            dtgGames.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, releaseDateDataGridViewTextBoxColumn1 });
+            dtgGames.DataSource = gameIndexBindingSource;
             dtgGames.Location = new Point(1053, 19);
             dtgGames.Margin = new Padding(5);
             dtgGames.Name = "dtgGames";
@@ -142,6 +142,27 @@
             dtgGames.Size = new Size(934, 429);
             dtgGames.TabIndex = 6;
             dtgGames.CellContentClick += dtgGames_CellContentClick;
+            // 
+            // gameIndexBindingSource
+            // 
+            gameIndexBindingSource.DataSource = typeof(DTO.GameIndex);
+            // 
+            // dtgHighscoresPlayer
+            // 
+            dtgHighscoresPlayer.AutoGenerateColumns = false;
+            dtgHighscoresPlayer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgHighscoresPlayer.BackgroundColor = SystemColors.Control;
+            dtgHighscoresPlayer.BorderStyle = BorderStyle.None;
+            dtgHighscoresPlayer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgHighscoresPlayer.Columns.AddRange(new DataGridViewColumn[] { playerIdDataGridViewTextBoxColumn, scoreDataGridViewTextBoxColumn, createdDataGridViewTextBoxColumn });
+            dtgHighscoresPlayer.DataSource = highscorePlayerIndexBindingSource;
+            dtgHighscoresPlayer.Location = new Point(20, 586);
+            dtgHighscoresPlayer.Margin = new Padding(5);
+            dtgHighscoresPlayer.Name = "dtgHighscoresPlayer";
+            dtgHighscoresPlayer.RowHeadersWidth = 51;
+            dtgHighscoresPlayer.RowTemplate.Height = 29;
+            dtgHighscoresPlayer.Size = new Size(934, 389);
+            dtgHighscoresPlayer.TabIndex = 7;
             // 
             // playerIdDataGridViewTextBoxColumn
             // 
@@ -167,48 +188,6 @@
             // highscorePlayerIndexBindingSource
             // 
             highscorePlayerIndexBindingSource.DataSource = typeof(DTO.HighscorePlayerIndex);
-            // 
-            // dtgHighscoresPlayer
-            // 
-            dtgHighscoresPlayer.AutoGenerateColumns = false;
-            dtgHighscoresPlayer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgHighscoresPlayer.BackgroundColor = SystemColors.Control;
-            dtgHighscoresPlayer.BorderStyle = BorderStyle.None;
-            dtgHighscoresPlayer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgHighscoresPlayer.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, releaseDateDataGridViewTextBoxColumn });
-            dtgHighscoresPlayer.DataSource = gameIndexBindingSource;
-            dtgHighscoresPlayer.Location = new Point(20, 586);
-            dtgHighscoresPlayer.Margin = new Padding(5);
-            dtgHighscoresPlayer.Name = "dtgHighscoresPlayer";
-            dtgHighscoresPlayer.RowHeadersWidth = 51;
-            dtgHighscoresPlayer.RowTemplate.Height = 29;
-            dtgHighscoresPlayer.Size = new Size(934, 389);
-            dtgHighscoresPlayer.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.DataPropertyName = "GameId";
-            dataGridViewTextBoxColumn6.HeaderText = "GameId";
-            dataGridViewTextBoxColumn6.MinimumWidth = 10;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.DataPropertyName = "Title";
-            dataGridViewTextBoxColumn7.HeaderText = "Title";
-            dataGridViewTextBoxColumn7.MinimumWidth = 10;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // releaseDateDataGridViewTextBoxColumn
-            // 
-            releaseDateDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDate";
-            releaseDateDataGridViewTextBoxColumn.HeaderText = "ReleaseDate";
-            releaseDateDataGridViewTextBoxColumn.MinimumWidth = 10;
-            releaseDateDataGridViewTextBoxColumn.Name = "releaseDateDataGridViewTextBoxColumn";
-            // 
-            // gameIndexBindingSource
-            // 
-            gameIndexBindingSource.DataSource = typeof(DTO.GameIndex);
             // 
             // dtgHighscoresGame
             // 
@@ -393,6 +372,28 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.DataPropertyName = "GameId";
+            dataGridViewTextBoxColumn9.HeaderText = "GameId";
+            dataGridViewTextBoxColumn9.MinimumWidth = 10;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.DataPropertyName = "Title";
+            dataGridViewTextBoxColumn10.HeaderText = "Title";
+            dataGridViewTextBoxColumn10.MinimumWidth = 10;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // releaseDateDataGridViewTextBoxColumn1
+            // 
+            releaseDateDataGridViewTextBoxColumn1.DataPropertyName = "ReleaseDate";
+            releaseDateDataGridViewTextBoxColumn1.HeaderText = "ReleaseDate";
+            releaseDateDataGridViewTextBoxColumn1.MinimumWidth = 10;
+            releaseDateDataGridViewTextBoxColumn1.Name = "releaseDateDataGridViewTextBoxColumn1";
+            // 
             // MainFrm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -424,9 +425,9 @@
             ((System.ComponentModel.ISupportInitialize)dtgPlayers).EndInit();
             ((System.ComponentModel.ISupportInitialize)playerIndexBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgGames).EndInit();
-            ((System.ComponentModel.ISupportInitialize)highscorePlayerIndexBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dtgHighscoresPlayer).EndInit();
             ((System.ComponentModel.ISupportInitialize)gameIndexBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgHighscoresPlayer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)highscorePlayerIndexBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgHighscoresGame).EndInit();
             ((System.ComponentModel.ISupportInitialize)highscoreGameIndexBindingSource).EndInit();
             ResumeLayout(false);
@@ -468,9 +469,6 @@
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn birthDayDataGridViewTextBoxColumn;
         private BindingSource playerIndexBindingSource;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn releaseDateDataGridViewTextBoxColumn;
         private BindingSource gameIndexBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn1;
@@ -480,6 +478,9 @@
         private DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
         private BindingSource highscorePlayerIndexBindingSource;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn releaseDateDataGridViewTextBoxColumn1;
     }
 }
 

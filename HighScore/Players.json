@@ -1,0 +1,32 @@
+[
+    {
+        "PlayerId": 1,
+        "FName": "First Name 1",
+        "LName": "Last Name 1",
+        "PwHash": "PasswordHash1",
+        "BirthDay": "2000-01-01",
+        "Entry": "2022-01-01T00:00:00",
+        "LastModified": "2022-01-01T00:00:00",
+        "ModifiedBy": "impscorp"
+    },
+    {
+        "PlayerId": 2,
+        "FName": "First Name 2",
+        "LName": "Last Name 2",
+        "PwHash": "PasswordHash2",
+        "BirthDay": "2000-02-01",
+        "Entry": "2022-02-01T00:00:00",
+        "LastModified": "2022-02-01T00:00:00",
+        "ModifiedBy": "impscorp"
+    },
+    {
+        "PlayerId": 20,
+        "FName": "First Name 20",
+        "LName": "Last Name 20",
+        "PwHash": "PasswordHash20",
+        "BirthDay": "2000-12-01",
+        "Entry": "2022-12-01T00:00:00",
+        "LastModified": "2022-12-01T00:00:00",
+        "ModifiedBy": "impscorp"
+    }
+]

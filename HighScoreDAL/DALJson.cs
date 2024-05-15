@@ -16,7 +16,7 @@ public class DALJson : DAL
         {
             try
             {
-                using FileStream fileStream = File.Create(FilePath + "Games.json");
+                using FileStream fileStream = File.Create(Path.Combine(FilePath, "Games.json"));
                 JsonSerializer.SerializeAsync(fileStream, _games);
                 count += _games.Count;
             }
@@ -29,7 +29,7 @@ public class DALJson : DAL
         {
             try 
             {
-                using FileStream fileStream = File.Create(FilePath + "Players.json");
+                using FileStream fileStream = File.Create(Path.Combine(FilePath, "Players.json"));
                 JsonSerializer.SerializeAsync(fileStream, _players);
                 count += _players.Count;
             }
@@ -42,7 +42,7 @@ public class DALJson : DAL
         {
             try
             {
-                using FileStream fileStream = File.Create(FilePath + "Highscore.json");
+                using FileStream fileStream = File.Create(Path.Combine(FilePath, "Highscore.json"));
                 JsonSerializer.SerializeAsync(fileStream, _highscores);
                 count += _highscores.Count;
             }
@@ -60,7 +60,7 @@ public class DALJson : DAL
     /// <returns></returns>
     protected override List<Game> LoadGames()
     {
-        string LoadPath = FilePath + "Games.json";
+        string LoadPath = Path.Combine( FilePath , "Games.json");
         if (File.Exists( LoadPath ) )
         {
             try
@@ -82,7 +82,7 @@ public class DALJson : DAL
     /// <returns></returns>
     protected override List<Player> LoadPlayers()
     {
-        string LoadPath = FilePath + "Players.json";
+        string LoadPath = Path.Combine(FilePath, "Players.json");
         if (File.Exists( LoadPath ) )
         {
             try
@@ -104,7 +104,7 @@ public class DALJson : DAL
     /// <returns></returns>
     protected override List<Highscore> LoadHighscores()
     {
-        string LoadPath = FilePath + "Highscore.json";
+        string LoadPath = Path.Combine(FilePath, "Highscore.json");
         if (File.Exists( LoadPath ) )
         {
             try

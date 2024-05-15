@@ -15,7 +15,7 @@ public abstract class DAL : IDAL
     public abstract int Save();
     
     public string FilePath { get; set; } =
-        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\HighScore";
+          Directory.GetCurrentDirectory();
 
     public void Rollback()
     {

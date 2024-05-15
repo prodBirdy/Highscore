@@ -37,12 +37,15 @@
             btnRevertForm = new Button();
             btnSaveForm = new Button();
             label4 = new Label();
-            Field4 = new TextBox();
             label3 = new Label();
             Field3 = new TextBox();
             label5 = new Label();
             Field5 = new TextBox();
             textBox1 = new TextBox();
+            dateTimePicker3 = new DateTimePicker();
+            Field4 = new TextBox();
+            dateTimePicker5 = new DateTimePicker();
+            dateTimePicker4 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)playerDetailBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -113,13 +116,6 @@
             label4.TabIndex = 17;
             label4.Text = "label4";
             // 
-            // Field4
-            // 
-            Field4.Location = new Point(169, 160);
-            Field4.Name = "Field4";
-            Field4.Size = new Size(617, 39);
-            Field4.TabIndex = 16;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -131,7 +127,7 @@
             // 
             // Field3
             // 
-            Field3.Location = new Point(169, 115);
+            Field3.Location = new Point(169, 111);
             Field3.Name = "Field3";
             Field3.Size = new Size(617, 39);
             Field3.TabIndex = 14;
@@ -160,16 +156,47 @@
             textBox1.Size = new Size(757, 283);
             textBox1.TabIndex = 20;
             // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(169, 113);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(617, 39);
+            dateTimePicker3.TabIndex = 21;
+            // 
+            // Field4
+            // 
+            Field4.Location = new Point(169, 158);
+            Field4.Name = "Field4";
+            Field4.Size = new Size(617, 39);
+            Field4.TabIndex = 22;
+            // 
+            // dateTimePicker5
+            // 
+            dateTimePicker5.Location = new Point(169, 201);
+            dateTimePicker5.Name = "dateTimePicker5";
+            dateTimePicker5.Size = new Size(617, 39);
+            dateTimePicker5.TabIndex = 23;
+            // 
+            // dateTimePicker4
+            // 
+            dateTimePicker4.Location = new Point(169, 158);
+            dateTimePicker4.Name = "dateTimePicker4";
+            dateTimePicker4.Size = new Size(617, 39);
+            dateTimePicker4.TabIndex = 24;
+            // 
             // PlayerForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 636);
+            Controls.Add(dateTimePicker4);
+            Controls.Add(dateTimePicker5);
+            Controls.Add(Field4);
+            Controls.Add(dateTimePicker3);
             Controls.Add(textBox1);
             Controls.Add(label5);
             Controls.Add(Field5);
             Controls.Add(label4);
-            Controls.Add(Field4);
             Controls.Add(label3);
             Controls.Add(Field3);
             Controls.Add(btnRevertForm);
@@ -195,11 +222,14 @@
         private Button btnRevertForm;
         private Button btnSaveForm;
         private Label label4;
-        private TextBox Field4;
         private Label label3;
         private TextBox Field3;
         private Label label5;
         private TextBox Field5;
         private TextBox textBox1;
+        private DateTimePicker dateTimePicker3;
+        private TextBox Field4;
+        private DateTimePicker dateTimePicker5;
+        private DateTimePicker dateTimePicker4;
     }
 }
