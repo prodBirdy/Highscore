@@ -1,6 +1,7 @@
 ﻿using BL;
 using DTO;
 using HighScoreGUI;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +19,14 @@ namespace PLWinForm
     {
 
         public WindowType windowType { get; set; }
+        public PlayerDetail Player { get; set;  }
+        public PlayerDetail PlayerAdd { get; set; }
 
         public PlayerForm(WindowType window, PlayerDetail p = null)
         {
+
+            Player = p;
+
             windowType = window;
             InitializeComponent();
 
@@ -29,7 +35,6 @@ namespace PLWinForm
             label3.Text = "BirthDay";
             label4.Text = "Entry";
             label5.Text = "Exit";
-
            
             switch (windowType)
             {
@@ -37,17 +42,19 @@ namespace PLWinForm
                     this.Text = "Add Player";
                     btnSaveForm.Text = "Save";
                     btnRevertForm.Text = "Abort";
-                    dateTimePicker3.Enabled = false;
-                    dateTimePicker5.Enabled = false;
+                    label4.Text = "Password";
+                    Entry.Visible = false;
+                    Exit.Enabled = false;
+                    LoadData(Player);
                     break;
                 case WindowType.Edit:
                     this.Text = "Edit Player";
                     btnSaveForm.Text = "Update";
                     btnRevertForm.Text = "Abort";
 
-                    dateTimePicker3.Enabled = false;
-                    dateTimePicker5.Enabled = false;
-                    LoadData(p);
+                    BirthDate.Enabled = false;
+                    Exit.Enabled = false;
+                    LoadData(Player);
                     break;
                 case WindowType.View:
                     this.Text = "View Player";
@@ -61,10 +68,10 @@ namespace PLWinForm
                     Field5.ReadOnly = true;
                     inpNotes.ReadOnly = true;
 
-                    dateTimePicker3.Enabled = false;
-                    dateTimePicker4.Enabled = false;
-                    dateTimePicker5.Enabled = false;
-                    LoadData(p);
+                    BirthDate.Enabled = false;
+                    Entry.Enabled = false;
+                    Exit.Enabled = false;
+                    LoadData(Player);
                     break;
                 default:
                     break;
@@ -78,9 +85,9 @@ namespace PLWinForm
             Field2.DataBindings.Add("Text", p, "LName");
             Field5.DataBindings.Add("Text", p, "Notes");
 
-            dateTimePicker3.DataBindings.Add("Value", p, "BirthDay", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now, "d");
-            dateTimePicker4.DataBindings.Add("Value", p, "Entry");
-            dateTimePicker5.DataBindings.Add("Value", p, "Exit", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now);
+            BirthDate.DataBindings.Add("Value", p, "BirthDay", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now, "d");
+            Entry.DataBindings.Add("Value", p, "Entry");
+            Exit.DataBindings.Add("Value", p, "Exit", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now);
 
         }
 
@@ -93,7 +100,7 @@ namespace PLWinForm
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to save?", "Save", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-
+                  
                 }
             }
             else if(windowType == WindowType.Edit)
