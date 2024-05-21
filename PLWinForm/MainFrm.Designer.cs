@@ -393,6 +393,7 @@
             btnRollback.TabIndex = 21;
             btnRollback.Text = "Rollback";
             btnRollback.UseVisualStyleBackColor = true;
+            btnRollback.Click += btnRollback_Click;
             // 
             // btnSave
             // 
@@ -403,6 +404,7 @@
             btnSave.TabIndex = 22;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // MainFrm
             // 

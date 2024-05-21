@@ -1,63 +1,60 @@
-﻿using BL;
-using DTO;
+﻿using DTO;
 using HighScoreGUI;
-using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Formats.Tar;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
 
 namespace PLWinForm
 {
-    public partial class PlayerForm : Form
+    public partial class GameForm : Form
     {
-
         public WindowType windowType { get; set; }
-        public PlayerDetail Player { get; set;  }
-        public PlayerDetail PlayerAdd { get; set; }
+        public GameDetail Game { get; set; }
+        public GameDetail GameAdd { get; set; }
 
-        public PlayerForm(WindowType window, PlayerDetail p = null)
+        public GameForm(WindowType window, GameDetail g = null)
         {
 
-            Player = p;
+            Game = g;
 
             windowType = window;
             InitializeComponent();
 
-            label1.Text = "FName";
-            label2.Text = "LName";
-            label3.Text = "BirthDay";
+            label1.Text = "Title";
+            label2.Text = "Publisher";
+            label3.Text = "ReleaseDate";
             label4.Text = "Entry";
             label5.Text = "Exit";
-           
+
             switch (windowType)
             {
                 case WindowType.Add:
-                    this.Text = "Add Player";
+                    this.Text = "Add Game";
                     btnSaveForm.Text = "Save";
                     btnRevertForm.Text = "Abort";
-                    label4.Text = "Password";
+                    label4.Text = "";
+                    Field4.Visible = false;
                     Entry.Visible = false;
                     Exit.Enabled = false;
                     break;
                 case WindowType.Edit:
-                    this.Text = "Edit Player";
+                    this.Text = "Edit Game";
                     btnSaveForm.Text = "Update";
                     btnRevertForm.Text = "Abort";
 
-                    BirthDate.Enabled = false;
+                    ReleaseDate.Enabled = false;
                     Exit.Enabled = false;
-                    LoadData(Player);
+                    LoadData(Game);
                     break;
                 case WindowType.View:
-                    this.Text = "View Player";
+                    this.Text = "View Game";
                     btnSaveForm.Visible = false;
                     btnRevertForm.Text = "Close";
 
@@ -68,10 +65,10 @@ namespace PLWinForm
                     Field5.ReadOnly = true;
                     inpNotes.ReadOnly = true;
 
-                    BirthDate.Enabled = false;
+                    ReleaseDate.Enabled = false;
                     Entry.Enabled = false;
                     Exit.Enabled = false;
-                    LoadData(Player);
+                    LoadData(Game);
                     break;
                 default:
                     break;
@@ -79,43 +76,39 @@ namespace PLWinForm
 
         }
 
-        private void LoadData(PlayerDetail p)
+        private void LoadData(GameDetail g)
         {
-            Field1.DataBindings.Add("Text", p, "FName");
-            Field2.DataBindings.Add("Text", p, "LName");
-            Field5.DataBindings.Add("Text", p, "Notes");
+            Field1.DataBindings.Add("Text", g, "Title");
+            Field2.DataBindings.Add("Text", g, "Publisher");
+            Field5.DataBindings.Add("Text", g, "Notes");
 
-            BirthDate.DataBindings.Add("Value", p, "BirthDay", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now, "d");
-            Entry.DataBindings.Add("Value", p, "Entry");
-            Exit.DataBindings.Add("Value", p, "Exit", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now);
+            ReleaseDate.DataBindings.Add("Value", g, "ReleaseDate", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now, "d");
+            Entry.DataBindings.Add("Value", g, "Entry");
+            Exit.DataBindings.Add("Value", g, "Exit", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now);
 
         }
-        public MainFrm.AddPlayerDelegate AddPlayer = delegate { };
-
+        public MainFrm.AddGameDelegate AddGame = delegate { };
 
         private void btnSaveForm_Click(object sender, EventArgs e)
         {
-            //TODO: Save data
-            //add a dialog with yes and no
-            if(windowType == WindowType.Add) 
+            if (windowType == WindowType.Add)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to save?", "Save", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    AddPlayer(new PlayerAdd
+                    AddGame(new GameDetail
                     {
-                        FName = Field1.Text,
-                        LName = Field2.Text,
-                        BirthDay = DateOnly.FromDateTime(BirthDate.Value.Date),
+                        Title = Field1.Text,
+                        Publisher = Field2.Text,
+                        ReleaseDate = DateOnly.FromDateTime(ReleaseDate.Value.Date),
                         Notes = Field5.Text,
                         Entry = DateTime.Now,
-                        Pw = Field4.Text,
                     });
 
                     this.Close();
                 }
             }
-            else if(windowType == WindowType.Edit)
+            else if (windowType == WindowType.Edit)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
