@@ -43,9 +43,6 @@
             gameIndexBindingSource1 = new BindingSource(components);
             gameIndexBindingSource = new BindingSource(components);
             dtgHighscoresPlayer = new DataGridView();
-            playerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            scoreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            createdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             highscorePlayerIndexBindingSource1 = new BindingSource(components);
             highscorePlayerIndexBindingSource = new BindingSource(components);
             dtgHighscoresGame = new DataGridView();
@@ -68,6 +65,9 @@
             btnDetailsHighscoreGame = new Button();
             btnRollback = new Button();
             btnSave = new Button();
+            playerIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            scoreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgPlayers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playerIndexBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)playerIndexBindingSource).BeginInit();
@@ -190,24 +190,6 @@
             dtgHighscoresPlayer.Size = new Size(503, 182);
             dtgHighscoresPlayer.TabIndex = 7;
             dtgHighscoresPlayer.CellDoubleClick += dtgHighscoresPlayer_CellDoubleClick;
-            // 
-            // playerIdDataGridViewTextBoxColumn
-            // 
-            playerIdDataGridViewTextBoxColumn.DataPropertyName = "PlayerId";
-            playerIdDataGridViewTextBoxColumn.HeaderText = "PlayerId";
-            playerIdDataGridViewTextBoxColumn.Name = "playerIdDataGridViewTextBoxColumn";
-            // 
-            // scoreDataGridViewTextBoxColumn
-            // 
-            scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
-            scoreDataGridViewTextBoxColumn.HeaderText = "Score";
-            scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
-            // 
-            // createdDataGridViewTextBoxColumn
-            // 
-            createdDataGridViewTextBoxColumn.DataPropertyName = "Created";
-            createdDataGridViewTextBoxColumn.HeaderText = "Created";
-            createdDataGridViewTextBoxColumn.Name = "createdDataGridViewTextBoxColumn";
             // 
             // highscorePlayerIndexBindingSource1
             // 
@@ -408,6 +390,25 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // playerIdDataGridViewTextBoxColumn
+            // 
+            playerIdDataGridViewTextBoxColumn.DataPropertyName = "PlayerId";
+            playerIdDataGridViewTextBoxColumn.HeaderText = "PlayerId";
+            playerIdDataGridViewTextBoxColumn.Name = "playerIdDataGridViewTextBoxColumn";
+            playerIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // scoreDataGridViewTextBoxColumn
+            // 
+            scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
+            scoreDataGridViewTextBoxColumn.HeaderText = "Score";
+            scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
+            // 
+            // createdDataGridViewTextBoxColumn
+            // 
+            createdDataGridViewTextBoxColumn.DataPropertyName = "Created";
+            createdDataGridViewTextBoxColumn.HeaderText = "Created";
+            createdDataGridViewTextBoxColumn.Name = "createdDataGridViewTextBoxColumn";
+            // 
             // MainFrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -489,9 +490,6 @@
         private BindingSource gameIndexBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private BindingSource highscoreGameIndexBindingSource;
-        private DataGridViewTextBoxColumn playerIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
         private BindingSource highscorePlayerIndexBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
@@ -509,6 +507,9 @@
         private DataGridViewTextBoxColumn gameIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn playerIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
     }
 }
 
