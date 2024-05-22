@@ -71,11 +71,11 @@ public class HighscoreRepo : IHighscoreRepo
     /// </summary>
     /// <param name="highscore"></param>
     /// <returns></returns>
-    public bool Add(Highscore highscore)
+    public bool Add(HighscoreIndex highscore)
     {
         Highscore newHighscore = new()
         {
-            PlayerId = _dal.Players.Max(p => p.PlayerId) + 1,
+            PlayerId = highscore.PlayerId,
             GameId = highscore.GameId,
             Score = highscore.Score,
             Created = DateTime.Now
@@ -89,7 +89,7 @@ public class HighscoreRepo : IHighscoreRepo
     /// </summary>
     /// <param name="highscore"></param>
     /// <returns></returns>
-    public bool Update(Highscore highscore)
+    public bool Update(HighscoreIndex highscore)
     {
         var highscoreToUpdate =
             _dal.Highscores.Find(h => h.GameId == highscore.GameId && h.PlayerId == highscore.PlayerId);

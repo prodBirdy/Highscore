@@ -30,10 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             lbNotes = new Label();
-            Entry = new DateTimePicker();
-            Exit = new DateTimePicker();
             Field4 = new TextBox();
-            ReleaseDate = new DateTimePicker();
             inpNotes = new TextBox();
             label5 = new Label();
             Field5 = new TextBox();
@@ -42,11 +39,14 @@
             btnRevertForm = new Button();
             btnSaveForm = new Button();
             label2 = new Label();
-            Field2 = new TextBox();
+            Publisher = new TextBox();
             label1 = new Label();
             Field3 = new TextBox();
             Field1 = new TextBox();
             gameDetailBindingSource = new BindingSource(components);
+            ReleaseDate = new MaskedTextBox();
+            Entry = new MaskedTextBox();
+            Exit = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)gameDetailBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -60,22 +60,6 @@
             lbNotes.TabIndex = 42;
             lbNotes.Text = "Notes";
             // 
-            // Entry
-            // 
-            Entry.Location = new Point(86, 73);
-            Entry.Margin = new Padding(2, 1, 2, 1);
-            Entry.Name = "Entry";
-            Entry.Size = new Size(334, 23);
-            Entry.TabIndex = 41;
-            // 
-            // Exit
-            // 
-            Exit.Location = new Point(86, 93);
-            Exit.Margin = new Padding(2, 1, 2, 1);
-            Exit.Name = "Exit";
-            Exit.Size = new Size(334, 23);
-            Exit.TabIndex = 40;
-            // 
             // Field4
             // 
             Field4.Location = new Point(86, 73);
@@ -83,14 +67,6 @@
             Field4.Name = "Field4";
             Field4.Size = new Size(334, 23);
             Field4.TabIndex = 39;
-            // 
-            // ReleaseDate
-            // 
-            ReleaseDate.Location = new Point(86, 52);
-            ReleaseDate.Margin = new Padding(2, 1, 2, 1);
-            ReleaseDate.Name = "ReleaseDate";
-            ReleaseDate.Size = new Size(334, 23);
-            ReleaseDate.TabIndex = 38;
             // 
             // inpNotes
             // 
@@ -171,13 +147,13 @@
             label2.TabIndex = 29;
             label2.Text = "lable2";
             // 
-            // Field2
+            // Publisher
             // 
-            Field2.Location = new Point(86, 32);
-            Field2.Margin = new Padding(2, 1, 2, 1);
-            Field2.Name = "Field2";
-            Field2.Size = new Size(334, 23);
-            Field2.TabIndex = 28;
+            Publisher.Location = new Point(86, 32);
+            Publisher.Margin = new Padding(2, 1, 2, 1);
+            Publisher.Name = "Publisher";
+            Publisher.Size = new Size(334, 23);
+            Publisher.TabIndex = 28;
             // 
             // label1
             // 
@@ -191,7 +167,7 @@
             // 
             // Field3
             // 
-            Field3.Location = new Point(86, 51);
+            Field3.Location = new Point(87, 51);
             Field3.Margin = new Padding(2, 1, 2, 1);
             Field3.Name = "Field3";
             Field3.Size = new Size(334, 23);
@@ -209,16 +185,43 @@
             // 
             gameDetailBindingSource.DataSource = typeof(DTO.GameDetail);
             // 
+            // ReleaseDate
+            // 
+            ReleaseDate.Location = new Point(86, 54);
+            ReleaseDate.Mask = "00/00/0000 00:00";
+            ReleaseDate.Name = "ReleaseDate";
+            ReleaseDate.Size = new Size(331, 23);
+            ReleaseDate.TabIndex = 43;
+            ReleaseDate.ValidatingType = typeof(DateTime);
+            // 
+            // Entry
+            // 
+            Entry.Location = new Point(86, 75);
+            Entry.Mask = "00/00/0000 00:00";
+            Entry.Name = "Entry";
+            Entry.Size = new Size(331, 23);
+            Entry.TabIndex = 44;
+            Entry.ValidatingType = typeof(DateTime);
+            // 
+            // Exit
+            // 
+            Exit.Location = new Point(86, 95);
+            Exit.Mask = "00/00/0000 00:00";
+            Exit.Name = "Exit";
+            Exit.Size = new Size(331, 23);
+            Exit.TabIndex = 45;
+            Exit.ValidatingType = typeof(DateTime);
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(431, 298);
-            Controls.Add(lbNotes);
-            Controls.Add(Entry);
             Controls.Add(Exit);
-            Controls.Add(Field4);
+            Controls.Add(Entry);
             Controls.Add(ReleaseDate);
+            Controls.Add(lbNotes);
+            Controls.Add(Field4);
             Controls.Add(inpNotes);
             Controls.Add(label5);
             Controls.Add(Field5);
@@ -227,7 +230,7 @@
             Controls.Add(btnRevertForm);
             Controls.Add(btnSaveForm);
             Controls.Add(label2);
-            Controls.Add(Field2);
+            Controls.Add(Publisher);
             Controls.Add(label1);
             Controls.Add(Field3);
             Controls.Add(Field1);
@@ -241,10 +244,7 @@
         #endregion
 
         private Label lbNotes;
-        private DateTimePicker Entry;
-        private DateTimePicker Exit;
         private TextBox Field4;
-        private DateTimePicker ReleaseDate;
         private TextBox inpNotes;
         private Label label5;
         private TextBox Field5;
@@ -253,10 +253,13 @@
         private Button btnRevertForm;
         private Button btnSaveForm;
         private Label label2;
-        private TextBox Field2;
+        private TextBox Publisher;
         private Label label1;
         private TextBox Field3;
         private TextBox Field1;
         private BindingSource gameDetailBindingSource;
+        private MaskedTextBox ReleaseDate;
+        private MaskedTextBox Entry;
+        private MaskedTextBox Exit;
     }
 }

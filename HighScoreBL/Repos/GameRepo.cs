@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Threading.Tasks.Dataflow;
 using DAL;
 using DTO;
@@ -65,6 +66,7 @@ public class GameRepo : IGameRepo
             Title = game.Title,
             ReleaseDate = game.ReleaseDate,
             Exit = game.Exit,
+            Entry = game.Entry,
             Notes = game.Notes,
         };
         return gameDetail;
@@ -96,14 +98,35 @@ public class GameRepo : IGameRepo
     /// <returns></returns>
     public bool Add(GameDetail game)
     {
-        Game newGame = new()
+        Game newGame;
+
+        if (_dal.Games.Count == 0)
         {
-            GameId = game.GameId,
-            Title = game.Title,
-            ReleaseDate = game.ReleaseDate,
-            Exit = game.Exit,
-            Notes = game.Notes  
-        };
+            newGame = new()
+            {
+                GameId = 1,
+                Title = game.Title,
+                ReleaseDate = game.ReleaseDate,
+                Publisher = game.Publisher,
+                Exit = game.Exit,
+                Notes = game.Notes
+            };
+
+
+        }
+        else
+        {
+            newGame = new()
+            {
+                GameId = _dal.Games.Max(p => p.GameId) + 1,
+                Title = game.Title,
+                ReleaseDate = game.ReleaseDate,
+                Publisher = game.Publisher,
+                Exit = game.Exit,
+                Notes = game.Notes
+            };
+        }
+
         _dal.Games.Add(newGame);
         return true;
     }
@@ -122,6 +145,7 @@ public class GameRepo : IGameRepo
         }
 
         gameToUpdate.Title = game.Title;
+        gameToUpdate.Publisher = game.Publisher;
         gameToUpdate.ReleaseDate = game.ReleaseDate;
         gameToUpdate.Exit = game.Exit;
         gameToUpdate.Notes = game.Notes;

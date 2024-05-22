@@ -91,6 +91,7 @@ namespace PLWinForm
 
         }
         public MainFrm.AddPlayerDelegate AddPlayer = delegate { };
+        public MainFrm.UpdatePlayerDelegate UpdatePlayer = delegate { };
 
 
         private void btnSaveForm_Click(object sender, EventArgs e)
@@ -120,7 +121,8 @@ namespace PLWinForm
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-
+                    UpdatePlayer(Player);
+                    this.Close();
                 }
             }
 

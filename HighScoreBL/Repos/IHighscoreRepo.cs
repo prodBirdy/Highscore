@@ -12,9 +12,9 @@ internal interface IHighscoreRepo
     List<HighscoreIndex> GetHighscoresByPlayer(int playerId);
     
     
-    bool Add(Highscore highscore);
+    bool Add(HighscoreIndex highscore);
     
-    bool Update(Highscore highscore);
+    bool Update(HighscoreIndex highscore);
     
     bool Delete(int gameId , int playerId);
     

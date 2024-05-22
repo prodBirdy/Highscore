@@ -1,5 +1,6 @@
 ﻿using DTO;
 using HighScoreGUI;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,10 @@ namespace PLWinForm
     public partial class GameForm : Form
     {
         public WindowType windowType { get; set; }
-        public GameDetail Game { get; set; }
-        public GameDetail GameAdd { get; set; }
+        public GameDetail? Game { get; set; }
+        public GameDetail? GameAdd { get; set; }
 
-        public GameForm(WindowType window, GameDetail g = null)
+        public GameForm(WindowType window, GameDetail? g = null)
         {
 
             Game = g;
@@ -59,7 +60,7 @@ namespace PLWinForm
                     btnRevertForm.Text = "Close";
 
                     Field1.ReadOnly = true;
-                    Field2.ReadOnly = true;
+                    Publisher.ReadOnly = true;
                     Field3.ReadOnly = true;
                     Field4.ReadOnly = true;
                     Field5.ReadOnly = true;
@@ -79,16 +80,16 @@ namespace PLWinForm
         private void LoadData(GameDetail g)
         {
             Field1.DataBindings.Add("Text", g, "Title");
-            Field2.DataBindings.Add("Text", g, "Publisher");
+            Publisher.DataBindings.Add("Text", g, "Publisher");
             Field5.DataBindings.Add("Text", g, "Notes");
-
-            ReleaseDate.DataBindings.Add("Value", g, "ReleaseDate", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now, "d");
-            Entry.DataBindings.Add("Value", g, "Entry");
-            Exit.DataBindings.Add("Value", g, "Exit", true, DataSourceUpdateMode.OnPropertyChanged, DateTime.Now);
+           
+            ReleaseDate.Text = g.ReleaseDate.ToString();
+            Entry.DataBindings.Add("Text", g, "Entry");
+            Exit.DataBindings.Add("Text", g, "Exit");
 
         }
         public MainFrm.AddGameDelegate AddGame = delegate { };
-
+        public MainFrm.UpdateGameDelegate UpdateGame = delegate { };
         private void btnSaveForm_Click(object sender, EventArgs e)
         {
             if (windowType == WindowType.Add)
@@ -99,8 +100,8 @@ namespace PLWinForm
                     AddGame(new GameDetail
                     {
                         Title = Field1.Text,
-                        Publisher = Field2.Text,
-                        ReleaseDate = DateOnly.FromDateTime(ReleaseDate.Value.Date),
+                        Publisher = Publisher.Text,
+                        ReleaseDate = DateOnly.Parse(ReleaseDate.Text),
                         Notes = Field5.Text,
                         Entry = DateTime.Now,
                     });
@@ -113,7 +114,8 @@ namespace PLWinForm
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-
+                    UpdateGame(Game);
+                    this.Close();
                 }
             }
 

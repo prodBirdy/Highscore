@@ -189,6 +189,7 @@
             dtgHighscoresPlayer.RowTemplate.Height = 29;
             dtgHighscoresPlayer.Size = new Size(503, 182);
             dtgHighscoresPlayer.TabIndex = 7;
+            dtgHighscoresPlayer.CellDoubleClick += dtgHighscoresPlayer_CellDoubleClick;
             // 
             // playerIdDataGridViewTextBoxColumn
             // 
@@ -228,6 +229,7 @@
             dtgHighscoresGame.RowTemplate.Height = 29;
             dtgHighscoresGame.Size = new Size(503, 182);
             dtgHighscoresGame.TabIndex = 8;
+            dtgHighscoresGame.CellDoubleClick += dtgHighscoresGame_CellDoubleClick;
             // 
             // gameIdDataGridViewTextBoxColumn
             // 

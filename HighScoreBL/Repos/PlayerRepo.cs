@@ -98,18 +98,38 @@ public class PlayerRepo : IPlayerRepo
     /// <returns></returns>
     public bool Add(PlayerAdd player)
     {
-        Player newPlayer = new()
-        {
-            PlayerId = _dal.Players.Max(p => p.PlayerId) + 1,
-            FName = player.FName,
-            LName = player.LName,
-            BirthDay = player.BirthDay,
-            Entry = player.Entry,
-            Exit = player.Exit,
-            Notes = player.Notes,
-            PwHash = player.Pw,
-        };
+        Player newPlayer;
+
+        if (_dal.Players.Count == 0) {
+            newPlayer = new()
+            {
+                PlayerId = 1,
+                FName = player.FName,
+                LName = player.LName,
+                BirthDay = player.BirthDay,
+                Entry = player.Entry,
+                Exit = player.Exit,
+                Notes = player.Notes,
+                PwHash = player.Pw,
+            };
+
+
+        }
+        else {
+            newPlayer = new()
+            {
+                PlayerId = _dal.Players.Max(p => p.PlayerId) + 1,
+                FName = player.FName,
+                LName = player.LName,
+                BirthDay = player.BirthDay,
+                Entry = player.Entry,
+                Exit = player.Exit,
+                Notes = player.Notes,
+                PwHash = player.Pw,
+            };
+        }
         _dal.Players.Add(newPlayer);
+
         return true;
     }
 
