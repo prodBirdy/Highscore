@@ -36,11 +36,11 @@ namespace PLWinForm
 
             if (g != null)
             {
-                label1.Text = "Game";
+                label1.Text = "Player";
             }
             else if (p != null)
             {
-                label1.Text = "Player";
+                label1.Text = "Game";
             }
             else
             {
@@ -55,11 +55,11 @@ namespace PLWinForm
             //set current combobox value to highscore player or game id depending on which is not null
             if (highscore.GameId != 0)
             {
-                comboBox1.SelectedValue = highscore.GameId;
+                comboBox1.SelectedValue = highscore.PlayerId;
             }
             else if (highscore.PlayerId != 0)
             {
-                comboBox1.SelectedValue = highscore.PlayerId;
+                comboBox1.SelectedValue = highscore.GameId;
             }
             else
             {

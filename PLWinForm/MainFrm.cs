@@ -1,5 +1,5 @@
 using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using static System.ComponentModel.Design.ObjectSelectorEditor;namespace HighScoreGUI;public partial class MainFrm : Form{    public readonly Uow uow;    public MainFrm()    {        InitializeComponent();
-        uow = new Uow(DALType.Json);        var players = uow.Players.GetPlayers();        var games = uow.Games.GetGames();        var highscoresPerPlayer = uow.Highscores.GetHighscoresByPlayer(1);        var highscoresPerGame = uow.Highscores.GetHighscoresByGame(1);        playerIndexBindingSource1.DataSource = players;        gameIndexBindingSource1.DataSource = games;        highscorePlayerIndexBindingSource1.DataSource = highscoresPerPlayer;        highscoreGameIndexBindingSource1.DataSource = highscoresPerGame;
+        uow = new Uow(DALType.Json);        var players = uow.Players.GetPlayers();        var games = uow.Games.GetGames();        var highscoresPerPlayer = uow.Highscores.GetHighscoresByPlayer(1);        var highscoresPerGame = uow.Highscores.GetHighscoresByGame(1);        playerIndexBindingSource1.DataSource = players;        gameIndexBindingSource1.DataSource = games;        highscorePlayerIndexBindingSource.DataSource = highscoresPerPlayer;        highscoreGameIndexBindingSource.DataSource = highscoresPerGame;
         playerIndexBindingSource1.CurrentChanged += PlayerIndexBindingSource_CurrentChanged;
         gameIndexBindingSource1.CurrentChanged += GameIndexBindingSource_CurrentChanged;
 
@@ -10,7 +10,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
         playerIndexBindingSource1.DataSource = uow.Players.GetPlayers();
         playerIndexBindingSource1.CurrentChanged += PlayerIndexBindingSource_CurrentChanged!;
         var currentPlayer = (PlayerIndex)playerIndexBindingSource1.Current;
-        highscorePlayerIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByPlayer(currentPlayer.PlayerId);
+        highscorePlayerIndexBindingSource.DataSource = uow.Highscores.GetHighscoresByPlayer(currentPlayer.PlayerId);
     }
 
     private void ReloadGames()
@@ -19,7 +19,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
         gameIndexBindingSource1.DataSource = uow.Games.GetGames();
         gameIndexBindingSource1.CurrentChanged += GameIndexBindingSource_CurrentChanged!;
         var currentGame = (GameIndex)gameIndexBindingSource1.Current;
-        highscoreGameIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByGame(currentGame.GameId);
+        highscoreGameIndexBindingSource.DataSource = uow.Highscores.GetHighscoresByGame(currentGame.GameId);
     }
     private void ReloadAll()
     {
@@ -31,8 +31,8 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
         gameIndexBindingSource1.CurrentChanged += GameIndexBindingSource_CurrentChanged!;
         var player = (PlayerIndex)dtgPlayers.CurrentRow.DataBoundItem;
         var game = (GameIndex)dtgGames.CurrentRow.DataBoundItem;
-        highscorePlayerIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByPlayer(player.PlayerId );
-        highscoreGameIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByGame(game.GameId);
+        highscorePlayerIndexBindingSource.DataSource = uow.Highscores.GetHighscoresByPlayer(player.PlayerId );
+        highscoreGameIndexBindingSource.DataSource = uow.Highscores.GetHighscoresByGame(game.GameId);
     }
 
     private void PlayerIndexBindingSource_CurrentChanged(object? sender, EventArgs e)
@@ -40,7 +40,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
         try
         {
             PlayerIndex pi = (PlayerIndex)playerIndexBindingSource1.Current;
-            highscorePlayerIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByPlayer(pi.PlayerId);
+            highscorePlayerIndexBindingSource.DataSource = uow.Highscores.GetHighscoresByPlayer(pi.PlayerId);
         }
         catch (Exception)
         {
@@ -55,7 +55,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
         try
         {
             GameIndex gi = (GameIndex)gameIndexBindingSource1.Current;
-            highscoreGameIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByPlayer(gi.GameId);
+            highscoreGameIndexBindingSource.DataSource = uow.Highscores.GetHighscoresByGame(gi.GameId);
         }
         catch (Exception)
         {
@@ -180,7 +180,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
     private void btnAddHighscorePlayer_Click(object sender, EventArgs e)
     {
         var currentPlayer = (PlayerIndex)playerIndexBindingSource1.Current;
-        var selects = uow.Players.GetPlayerSelect();
+        var selects = uow.Games.GetGameSelect();
         var highscore = new HighscoreIndex
         {
             PlayerId = currentPlayer.PlayerId,
@@ -196,7 +196,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
 
     private void btnDeleteHighscorePlayer_Click(object sender, EventArgs e)
     {
-        var currentHighScore = (HighscoreIndex)highscorePlayerIndexBindingSource1.Current;
+        var currentHighScore = (HighscoreIndex)highscorePlayerIndexBindingSource.Current;
 
         var sureResult = MessageBox.Show($@"Are u sure u want do delete HighScore {currentHighScore.Score} from {currentHighScore.Created}?");
         if (sureResult == DialogResult.OK)
@@ -216,7 +216,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
     private void btnAddHighscoreGame_Click(object sender, EventArgs e)
     {
         var currentGame = (GameIndex)gameIndexBindingSource1.Current;
-        var selects = uow.Games.GetGameSelect();
+        var selects = uow.Players.GetPlayerSelect();
         var highscore = new HighscoreIndex
         {
             GameId = currentGame.GameId,
@@ -232,7 +232,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
 
     private void btnDeleteHighscoreGame_Click(object sender, EventArgs e)
     {
-        var currentHighScore = (HighscoreIndex)highscoreGameIndexBindingSource1.Current;
+        var currentHighScore = (HighscoreIndex)highscoreGameIndexBindingSource.Current;
 
         var sureResult = MessageBox.Show($@"Are u sure u want do delete HighScore {currentHighScore.Score} from {currentHighScore.Created}?");
         if (sureResult == DialogResult.OK)
@@ -276,7 +276,7 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
     {
         var game = (GameIndex)dtgGames.CurrentRow.DataBoundItem;
         var highscoreIndex = uow.Highscores.GetHighscoresByGame(game.GameId).Find(h => h.GameId  == (int)dtgHighscoresGame[0 , e.RowIndex].Value);
-        var selects = uow.Games.GetGameSelect();
+        var selects = uow.Players.GetPlayerSelect();
 
         HighscoreForm addHighScoreForm = new HighscoreForm(WindowType.Edit, highscoreIndex, null, game, selects);
         addHighScoreForm.UpdateHighScore = new UpdateHighScoreDelegate(this.UpdateHighScore);
@@ -290,9 +290,9 @@ using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using
     {
         //TODO Check bug in Update Function
         var player = (PlayerIndex)dtgPlayers.CurrentRow.DataBoundItem;
-        var highscoreIndex = uow.Highscores.GetHighscoresByPlayer(player.PlayerId).Find(h => h.PlayerId == (int)dtgHighscoresPlayer[0, e.RowIndex].Value);
+        var highscoreIndex = uow.Highscores.GetHighscoresByPlayer(player.PlayerId).Find(h => h.GameId == (int)dtgHighscoresPlayer[0, e.RowIndex].Value);
 
-        var selects = uow.Players.GetPlayerSelect();
+        var selects = uow.Games.GetGameSelect();
 
         HighscoreForm addHighScoreForm = new HighscoreForm(WindowType.Edit, highscoreIndex, player, null, selects);
         addHighScoreForm.UpdateHighScore = new UpdateHighScoreDelegate(this.UpdateHighScore);

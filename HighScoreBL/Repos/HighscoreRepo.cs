@@ -42,6 +42,7 @@ public class HighscoreRepo : IHighscoreRepo
                          select new HighscoreIndex
                          {
                              PlayerId = h.PlayerId,
+                             GameId = h.GameId,
                              Score = h.Score,
                              Created = h.Created
                          };
@@ -60,6 +61,7 @@ public class HighscoreRepo : IHighscoreRepo
                          select new HighscoreIndex
                          {
                              PlayerId = h.PlayerId,
+                             GameId = h.GameId,
                              Score = h.Score,
                              Created = h.Created
                          };
@@ -92,7 +94,7 @@ public class HighscoreRepo : IHighscoreRepo
     public bool Update(HighscoreIndex highscore)
     {
         var highscoreToUpdate =
-            _dal.Highscores.Find(h => h.GameId == highscore.GameId || h.PlayerId == highscore.PlayerId);
+            _dal.Highscores.Find(h => h.GameId == highscore.GameId && h.PlayerId == highscore.PlayerId);
         if (highscoreToUpdate is null)
         {
             return false;
