@@ -1,4 +1,4 @@
-using BL;using DTO;using Models;using PLWinForm;using static System.ComponentModel.Design.ObjectSelectorEditor;namespace HighScoreGUI;public partial class MainFrm : Form{    public readonly Uow uow;    public MainFrm()    {        InitializeComponent();
+using BL;using DTO;using Models;using PLWinForm;using System.Numerics;using static System.ComponentModel.Design.ObjectSelectorEditor;namespace HighScoreGUI;public partial class MainFrm : Form{    public readonly Uow uow;    public MainFrm()    {        InitializeComponent();
         uow = new Uow(DALType.Json);        var players = uow.Players.GetPlayers();        var games = uow.Games.GetGames();        var highscoresPerPlayer = uow.Highscores.GetHighscoresByPlayer(1);        var highscoresPerGame = uow.Highscores.GetHighscoresByGame(1);        playerIndexBindingSource1.DataSource = players;        gameIndexBindingSource1.DataSource = games;        highscorePlayerIndexBindingSource1.DataSource = highscoresPerPlayer;        highscoreGameIndexBindingSource1.DataSource = highscoresPerGame;
         playerIndexBindingSource1.CurrentChanged += PlayerIndexBindingSource_CurrentChanged;
         gameIndexBindingSource1.CurrentChanged += GameIndexBindingSource_CurrentChanged;
@@ -29,8 +29,10 @@ using BL;using DTO;using Models;using PLWinForm;using static System.Componen
         gameIndexBindingSource1.CurrentChanged -= GameIndexBindingSource_CurrentChanged!;
         gameIndexBindingSource1.DataSource = uow.Games.GetGames();
         gameIndexBindingSource1.CurrentChanged += GameIndexBindingSource_CurrentChanged!;
-        highscorePlayerIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByPlayer(uow.Highscores.GetHighscoresByPlayer(1)[0].PlayerId);
-        highscoreGameIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByGame(uow.Highscores.GetHighscoresByGame(1)[0].GameId);
+        var player = (PlayerIndex)dtgPlayers.CurrentRow.DataBoundItem;
+        var game = (GameIndex)dtgGames.CurrentRow.DataBoundItem;
+        highscorePlayerIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByPlayer(player.PlayerId );
+        highscoreGameIndexBindingSource1.DataSource = uow.Highscores.GetHighscoresByGame(game.GameId);
     }
 
     private void PlayerIndexBindingSource_CurrentChanged(object? sender, EventArgs e)

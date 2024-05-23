@@ -52,6 +52,19 @@ namespace PLWinForm
             comboBox1.DataSource = items;
             comboBox1.DisplayMember = "DisplayMember";
             comboBox1.ValueMember = "ValueMember";
+            //set current combobox value to highscore player or game id depending on which is not null
+            if (highscore.GameId != 0)
+            {
+                comboBox1.SelectedValue = highscore.GameId;
+            }
+            else if (highscore.PlayerId != 0)
+            {
+                comboBox1.SelectedValue = highscore.PlayerId;
+            }
+            else
+            {
+                comboBox1.SelectedIndex = 0;
+            }
             scoreInput.Maximum = 100000;
             switch (windowType)
             {

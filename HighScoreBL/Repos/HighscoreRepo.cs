@@ -21,12 +21,12 @@ public class HighscoreRepo : IHighscoreRepo
     public List<HighscoreIndex> GetHighscores()
     {
         var highscores = from h in _dal.Highscores
-            select new HighscoreIndex
-            {
-                PlayerId = h.PlayerId,
-                Score = h.Score,
-                Created = h.Created
-            };
+                         select new HighscoreIndex
+                         {
+                             PlayerId = h.PlayerId,
+                             Score = h.Score,
+                             Created = h.Created
+                         };
         return highscores.ToList();
     }
 
@@ -38,13 +38,13 @@ public class HighscoreRepo : IHighscoreRepo
     public List<HighscoreIndex> GetHighscoresByGame(int gameId)
     {
         var highscores = from h in _dal.Highscores
-            where h.GameId == gameId
-            select new HighscoreIndex
-            {
-                PlayerId = h.PlayerId,
-                Score = h.Score,
-                Created = h.Created
-            };
+                         where h.GameId == gameId
+                         select new HighscoreIndex
+                         {
+                             PlayerId = h.PlayerId,
+                             Score = h.Score,
+                             Created = h.Created
+                         };
         return highscores.ToList();
     }
 
@@ -56,13 +56,13 @@ public class HighscoreRepo : IHighscoreRepo
     public List<HighscoreIndex> GetHighscoresByPlayer(int playerId)
     {
         var highscores = from h in _dal.Highscores
-            where h.PlayerId == playerId
-            select new HighscoreIndex
-            {
-                PlayerId = h.PlayerId,
-                Score = h.Score,
-                Created = h.Created
-            };
+                         where h.PlayerId == playerId
+                         select new HighscoreIndex
+                         {
+                             PlayerId = h.PlayerId,
+                             Score = h.Score,
+                             Created = h.Created
+                         };
         return highscores.ToList();
     }
 
@@ -92,7 +92,7 @@ public class HighscoreRepo : IHighscoreRepo
     public bool Update(HighscoreIndex highscore)
     {
         var highscoreToUpdate =
-            _dal.Highscores.Find(h => h.GameId == highscore.GameId && h.PlayerId == highscore.PlayerId);
+            _dal.Highscores.Find(h => h.GameId == highscore.GameId || h.PlayerId == highscore.PlayerId);
         if (highscoreToUpdate is null)
         {
             return false;
